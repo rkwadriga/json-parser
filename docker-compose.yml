@@ -1,0 +1,16 @@
+services:
+  php:
+    build: './.docker/php'
+    tty: true
+    volumes:
+      - ./:/var/www/html/
+      - ./.docker/php/logs/access.log:/var/log/apache2/access.log
+      - ./.docker/php/logs/error.log:/var/log/apache2/error.log
+  composer:
+    build: './.docker/composer'
+    tty: true
+    command: ["composer", "install"]
+    volumes:
+      - ./:/app/
+    depends_on:
+      - php

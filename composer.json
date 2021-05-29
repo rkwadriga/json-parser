@@ -15,16 +15,20 @@
   ],
   "require": {
     "php": ">=8.0",
-    "phpunit/phpunit": "^9.5.4",
+    "phpunit/phpunit": "^10.0",
     "ext-json": "*"
   },
   "autoload": {
     "psr-4": {
-      "rkwadiga\\simpledi\\": "src",
-      "rkwadriga\\simpledi\\tests\\": "tests"
+      "App\\": "app/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests/"
     }
   },
   "require-dev": {
-    "symfony/var-dumper": "^5.4.x-dev"
+    "symfony/var-dumper": "*"
   }
 }
