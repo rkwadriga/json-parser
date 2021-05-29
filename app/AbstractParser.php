@@ -9,8 +9,20 @@ namespace App;
 abstract class AbstractParser
 {
     public function __construct(
-        protected string|array $source
+        protected string|array $source,
     ) {}
 
-    abstract public function parse(): array|string|null;
+    public function convert(): mixed
+    {
+        // If source type do ton match with current parser expected source type -
+        //  let's assume it's doesn't need to be parsed
+        if (gettype($this->source) != $this->sourceType()) {
+            return $this->source;
+        }
+        return $this->parse();
+    }
+
+    abstract protected function parse(): mixed;
+
+    abstract protected function sourceType(): SourceTypeEnum;
 }

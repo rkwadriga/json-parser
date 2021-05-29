@@ -8,9 +8,9 @@ namespace App;
 
 class Json
 {
-    public static function decode(string $jsonString): array|null
+    public static function decode(string $jsonString): mixed
     {
         $parser = new Decoder($jsonString);
-        return $parser->parse();
+        return $parser->convert();
     }
 }
