@@ -99,7 +99,6 @@ class Decoder extends AbstractParser
 
     private function explode(string $str): array
     {
-        dd($str);
         // @todo - make a correct exploding by separator
         return explode(self::SEPARATE_CHAR, $str);
     }
